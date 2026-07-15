@@ -1,0 +1,13 @@
+\begin{tikzpicture}[x=1cm,y=0.8cm,
+  source/.style={rounded corners=2pt,minimum height=.85cm,align=center,font=\sffamily\small},
+  note/.style={draw=muted!55,fill=softgray!45,rounded corners=2pt,text width=9.6cm,align=left,inner sep=5pt,font=\sffamily\scriptsize}
+]
+  \node[source,draw=ink,fill=ink!8,minimum width=5.8cm] (constitution) at (0,0) {Grundlov og\\forfatningsprincipper};
+  \node[source,draw=accent,fill=accent!10,minimum width=7.2cm] (statute) at (0,-1.25) {Love vedtaget af Folketinget};
+  \node[source,draw=warm,fill=warm!12,minimum width=8.6cm] (regulation) at (0,-2.5) {Bekendtgørelser og andre forskrifter};
+  \node[source,draw=muted,fill=softgray,minimum width=10cm] (practice) at (0,-3.75) {Afgørelser, praksis, sædvane og juridiske principper};
+  \draw[-{Stealth[length=2mm]},thick,muted] (constitution.south) -- (statute.north);
+  \draw[-{Stealth[length=2mm]},thick,muted] (statute.south) -- (regulation.north);
+  \draw[-{Stealth[length=2mm]},thick,muted] (regulation.south) -- (practice.north);
+  \node[note,anchor=north] at (0,-4.42) {\textbf{Læs figuren som en huskeregel:} Niveauerne påvirker hinanden, og den konkrete vægt afhænger af retligt område, hjemmel, fortolkning og praksis. Det er derfor ikke en automatisk rangliste i enhver sag.};
+\end{tikzpicture}

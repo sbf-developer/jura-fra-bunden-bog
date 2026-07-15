@@ -1,0 +1,216 @@
+\documentclass[12pt,oneside,openany]{memoir}
+
+\usepackage{fontspec}
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+% The base image does not ship babel-danish. XeLaTeX still handles the
+% UTF-8 Danish text correctly; hyphenation remains conservative and readable.
+\usepackage[english]{babel}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{paperwidth=17cm,paperheight=24cm,inner=2.05cm,outer=1.75cm,top=1.85cm,bottom=2.0cm,headheight=16pt,headsep=0.45cm,footskip=0.8cm}
+\special{papersize=17cm,24cm}
+% memoir emulates setspace; a modest line spread keeps the larger type airy.
+\linespread{1.08}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,longtable,tabularx,ragged2e}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,shapes.geometric}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{csquotes}
+\usepackage{xurl}
+\usepackage{natbib}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\definecolor{ink}{HTML}{172B4D}
+\definecolor{accent}{HTML}{197C8C}
+\definecolor{warm}{HTML}{C9783B}
+\definecolor{paper}{HTML}{F7F8FA}
+\definecolor{muted}{HTML}{5E6B7A}
+\definecolor{line}{HTML}{D8E0E8}
+\definecolor{softblue}{HTML}{EAF3F6}
+\definecolor{softwarm}{HTML}{FBF0E8}
+\definecolor{softgray}{HTML}{F1F3F5}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=ink,
+  citecolor=accent,
+  urlcolor=accent,
+  pdftitle={Jura fra bunden},
+  pdfauthor={Scott Brodie Forsyth},
+  pdfsubject={Introduktion til dansk ret og juridisk metode}
+}
+
+\setsecnumdepth{subsection}
+\settocdepth{subsection}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\emergencystretch}{3em}
+\setlist[itemize]{leftmargin=1.35em,itemsep=0.2em,topsep=0.25em}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=0.25em,topsep=0.25em}
+
+\makeatletter
+\makechapterstyle{cleanlaw}{%
+  \renewcommand{\chapnamefont}{\sffamily\bfseries\color{accent}\large}
+  \renewcommand{\chapnumfont}{\sffamily\bfseries\color{accent}\fontsize{42}{42}\selectfont}
+  \renewcommand{\chaptitlefont}{\sffamily\bfseries\color{ink}\Huge}
+  \renewcommand{\printchaptername}{\chapnamefont\@chapapp}
+  \renewcommand{\printchapternum}{\chapnumfont\thechapter}
+  \renewcommand{\afterchapternum}{\par\vskip 6pt}
+  \renewcommand{\printchaptertitle}[1]{\chaptitlefont ##1\par}
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\afterchapskip}{30pt}
+}
+\makeatother
+\chapterstyle{cleanlaw}
+\setsecheadstyle{\Large\sffamily\bfseries\color{ink}}
+\setsubsecheadstyle{\large\sffamily\bfseries\color{accent}}
+\setsubsubsecheadstyle{\normalsize\sffamily\bfseries\color{ink}}
+
+\newtcolorbox{keybox}{
+  enhanced,breakable,boxrule=0pt,frame hidden,
+  colback=softblue,coltext=ink,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  borderline west={3pt}{0pt}{accent},before skip=8pt,after skip=12pt
+}
+\newtcolorbox{examplebox}{
+  enhanced,breakable,boxrule=0.5pt,colframe=line,colback=paper,
+  coltext=ink,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  before skip=8pt,after skip=12pt
+}
+\newtcolorbox{warningbox}{
+  enhanced,breakable,boxrule=0pt,frame hidden,
+  colback=softwarm,coltext=ink,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  borderline west={3pt}{0pt}{warm},before skip=8pt,after skip=12pt
+}
+\newtcolorbox{methodbox}{
+  enhanced,breakable,boxrule=0.5pt,colframe=accent,colback=white,
+  coltext=ink,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  before skip=8pt,after skip=12pt
+}
+\newcommand{\term}[1]{\textbf{#1}}
+\newcommand{\law}[1]{\textsc{#1}}
+\newcommand{\important}[1]{\textbf{\color{accent}#1}}
+\newcommand{\chapterlead}[1]{\begin{keybox}\textbf{Hovedidé.} #1\end{keybox}}
+\newcommand{\question}[1]{\begin{examplebox}\textbf{Tænk over det.} #1\end{examplebox}}
+\newcommand{\practice}[1]{\begin{methodbox}\textbf{Arbejdsgang.} #1\end{methodbox}}
+\newcommand{\caution}[1]{\begin{warningbox}\textbf{Pas på.} #1\end{warningbox}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\sffamily\small\color{muted}\rightmark}
+\fancyhead[L]{\sffamily\small\color{muted}\thepage}
+\renewcommand{\chaptermark}[1]{\markright{#1}}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}\fancyfoot[C]{\sffamily\small\color{muted}\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+\begin{document}
+
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[ink] (current page.south west) rectangle ([xshift=17cm,yshift=28cm]current page.south west);
+  \fill[accent] (current page.south west) rectangle ([xshift=2.35cm,yshift=28cm]current page.south west);
+  \fill[warm] ([yshift=27.72cm]current page.south west) rectangle ([xshift=17cm,yshift=28cm]current page.south west);
+  \node[anchor=west,text=white!75,font=\sffamily\fontsize{8.5}{10}\selectfont] at ([xshift=2.05cm,yshift=20.35cm]current page.south west) {EN INTRODUKTIONSBOG · DANSK RET};
+  \node[anchor=west,text=white,font=\sffamily\bfseries\fontsize{34}{38}\selectfont] at ([xshift=2.05cm,yshift=16.7cm]current page.south west) {Jura};
+  \node[anchor=west,text=white,font=\sffamily\bfseries\fontsize{34}{38}\selectfont] at ([xshift=2.05cm,yshift=15.55cm]current page.south west) {fra bunden};
+  \node[anchor=west,text=white!80,text width=10.8cm,align=left,font=\sffamily\large] at ([xshift=2.05cm,yshift=14.25cm]current page.south west) {En tilgængelig introduktion til juridisk tænkning og dansk ret};
+  \draw[warm,line width=1.2pt] ([xshift=2.05cm,yshift=13.2cm]current page.south west) -- ([xshift=6.7cm,yshift=13.2cm]current page.south west);
+  \node[anchor=west,text=white,font=\sffamily\fontsize{8.5}{10}\selectfont] at ([xshift=2.05cm,yshift=5.25cm]current page.south west) {Scott Brodie Forsyth};
+  \node[anchor=west,text=white!65,font=\sffamily\fontsize{8}{9.5}\selectfont] at ([xshift=2.05cm,yshift=4.7cm]current page.south west) {Udgave 1.0 · 15. juli 2026};
+\end{tikzpicture}
+\clearpage
+
+\frontmatter
+\chapter*{Titel og formål}
+\addcontentsline{toc}{chapter}{Titel og formål}
+\thispagestyle{empty}
+\vspace*{1.2cm}
+{\sffamily\bfseries\Huge Jura fra bunden\par}
+\vspace{0.4cm}
+{\Large En introduktionsbog til juridisk tænkning og dansk ret\par}
+\vspace{1.3cm}
+Denne bog forklarer, hvordan man går fra et hverdagsproblem til et juridisk spørgsmål, hvordan man finder de relevante regler, og hvordan man argumenterer ansvarligt for en konklusion.
+
+Den er skrevet med dansk ret som udgangspunkt. EU-retten, Den Europæiske Menneskerettighedskonvention og digitale regler behandles, hvor de er nødvendige for at forstå den ret, der møder mennesker, virksomheder og myndigheder i Danmark.
+
+\vfill
+\begin{keybox}
+\textbf{Udgave 1.0 · 15. juli 2026}\par
+Bogen er introduktionsstof, ikke konkret juridisk rådgivning. Retstilstanden ændrer sig, og en konkret sag kræver altid kontrol af den gældende lovtekst, praksis og eventuelt professionel rådgivning.
+\end{keybox}
+\clearpage
+
+\chapter*{Forord}
+\addcontentsline{toc}{chapter}{Forord}
+Jura kan på afstand ligne en samling paragraffer, som kun jurister kan læse. På tæt hold er jura imidlertid en bestemt måde at stille spørgsmål på. Hvem har kompetence? Hvilken regel gælder? Hvilke fakta kan bevises? Hvilke hensyn må indgå? Hvad følger der af reglen, og hvad er kun en rimelig mavefornemmelse?
+
+Bogen begynder derfor ikke med at forudsætte, at læseren allerede kan juridiske ord. Først beskrives idéen i almindeligt sprog. Derefter introduceres begrebet, den juridiske struktur og de typiske undtagelser. Det er vigtigt, fordi juridisk præcision ikke opstår ved at bruge mange fremmede ord. Den opstår ved at holde regler, fakta, fortolkning og vurdering adskilt.
+
+Bogens eksempler er konstruerede, medmindre andet er angivet. De skal træne læserens metode, ikke give et færdigt svar på en virkelig sag. En bog kan lære dig at læse en regel og opdage de relevante spørgsmål; den kan ikke på forhånd kende alle dokumenter, tidsfrister, beviser og særlige regler i din konkrete situation.
+
+\vspace{1em}
+\begin{flushright}
+Scott Brodie Forsyth\\
+15. juli 2026
+\end{flushright}
+
+\chapter*{Sådan bruger du bogen}
+\addcontentsline{toc}{chapter}{Sådan bruger du bogen}
+Hvert kapitel følger den samme rytme:
+\begin{enumerate}
+  \item en intuitiv forklaring af problemet,
+  \item de juridiske begreber og deres afgrænsning,
+  \item en metode til at arbejde med spørgsmålet,
+  \item et eller flere eksempler, og
+  \item korte øvelser, der tvinger dig til at skelne mellem relevante og irrelevante oplysninger.
+\end{enumerate}
+
+Når du møder en juridisk problemstilling, så brug denne korte kontrol:
+\begin{enumerate}
+  \item Hvad er den præcise konflikt eller beslutning?
+  \item Hvem er parterne, og hvilken rolle har de?
+  \item Hvilken myndighed eller domstol kan være kompetent?
+  \item Hvilke faktiske oplysninger er sikre, usikre eller omstridte?
+  \item Hvilke retskilder kan regulere situationen?
+  \item Hvilke betingelser skal være opfyldt, før reglen får virkning?
+  \item Hvilke retsfølger følger af en overtrædelse eller opfyldelse?
+  \item Hvilke modargumenter og undtagelser skal behandles?
+\end{enumerate}
+
+\tableofcontents*
+
+\mainmatter
+\include{chapters/01-retten}
+\include{chapters/02-metode}
+\include{chapters/03-forfatning}
+\include{chapters/04-forvaltning}
+\include{chapters/05-rettigheder}
+\include{chapters/06-eu-og-international}
+\include{chapters/07-aftaler}
+\include{chapters/08-erstatning}
+\include{chapters/09-person-og-ejendom}
+\include{chapters/10-straf}
+\include{chapters/11-proces}
+\include{chapters/12-data-og-ai}
+\include{chapters/13-juridisk-arbejde}
+
+\appendix
+\include{chapters/a-ovelser}
+\include{chapters/b-ordliste}
+\include{chapters/c-kilder}
+
+\backmatter
+\renewcommand{\bibname}{Litteratur og retskilder}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

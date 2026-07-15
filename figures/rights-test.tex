@@ -1,0 +1,17 @@
+\begin{tikzpicture}[
+  node distance=0.36cm,
+  test/.style={draw=accent,fill=softblue,rounded corners=3pt,minimum width=8.8cm,minimum height=.72cm,align=left,inner xsep=.42cm,font=\sffamily\footnotesize},
+  arrow/.style={-{Stealth[length=2mm]},thick,muted},
+  note/.style={draw=muted!55,fill=softgray!45,rounded corners=2pt,text width=8.5cm,align=left,inner sep=5pt,font=\sffamily\scriptsize}
+]
+\node[test] (basis) {\textcolor{accent}{\textbf{1}}\quad Er der en retlig hjemmel eller rettighed?};
+\node[test,below=of basis] (purpose) {\textcolor{accent}{\textbf{2}}\quad Forfølger indgrebet et legitimt formål?};
+\node[test,below=of purpose] (suitable) {\textcolor{accent}{\textbf{3}}\quad Er indgrebet egnet til formålet?};
+\node[test,below=of suitable] (necessary) {\textcolor{accent}{\textbf{4}}\quad Er indgrebet nødvendigt og mindst indgribende?};
+\node[test,below=of necessary] (balance) {\textcolor{accent}{\textbf{5}}\quad Er den samlede afvejning rimelig og begrundet?};
+\draw[arrow] (basis) -- (purpose);
+\draw[arrow] (purpose) -- (suitable);
+\draw[arrow] (suitable) -- (necessary);
+\draw[arrow] (necessary) -- (balance);
+\node[note,below=0.42cm of balance] {Den konkrete prøve afhænger af den rettighed og hjemmel, der er i spil. Figuren er et arbejdsskema, ikke en universel formel.};
+\end{tikzpicture}

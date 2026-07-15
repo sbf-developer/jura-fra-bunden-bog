@@ -1,0 +1,96 @@
+\chapter{Dataret, digitale tjenester og kunstig intelligens}
+
+\chapterlead{Digitale systemer skaber ikke et juridisk tomrum. Databeskyttelse, aftaleret, forvaltningsret, ophavsret, cybersikkerhed og AI-regulering kan gælde samtidig. Den første opgave er at identificere data, aktører, formål og risiko.}
+
+\section{Personoplysninger}
+
+En personoplysning er information, der direkte eller indirekte kan knyttes til en identificeret eller identificerbar fysisk person. Det kan være navn og CPR-nummer, men også en IP-adresse, en lokaliseringshistorik, et billede eller en kombination af oplysninger, som gør personen genkendelig.
+
+GDPR gælder for behandling af personoplysninger inden for forordningens materielle og territoriale rammer. Databeskyttelsesloven supplerer forordningen på en række områder i dansk ret \citep{gdpr,databeskyttelsesloven}.
+
+\section{Roller}
+
+Den \term{dataansvarlige} bestemmer formålene med og hjælpemidlerne til behandlingen. En \term{databehandler} behandler oplysninger på vegne af den dataansvarlige efter instruks. Hvis flere bestemmer formål og midler sammen, kan der være fælles dataansvar.
+
+Rollen følger ikke automatisk af kontraktens overskrift. En virksomhed, der kalder sig ``databehandler'', men i praksis selv bestemmer formål og brug, kan stadig være dataansvarlig for den relevante behandling. Vurderingen er funktionel.
+
+\section{Grundprincipper}
+
+GDPR's principper er en praktisk tjekliste og ikke kun abstrakte idealer:
+\begin{itemize}
+  \item lovlighed, rimelighed og gennemsigtighed,
+  \item formålsbegrænsning,
+  \item dataminimering,
+  \item rigtighed,
+  \item opbevaringsbegrænsning,
+  \item integritet og fortrolighed, og
+  \item ansvarlighed.
+\end{itemize}
+
+Ansvarlighed betyder, at den dataansvarlige skal kunne dokumentere, at reglerne overholdes. Det er derfor ikke nok at have en privat vurdering af, at en behandling ``nok er okay''. Man skal kunne forklare formål, hjemmel, sikkerhed, opbevaring og rettigheder.
+
+\section{Behandlingsgrundlag}
+
+En behandling skal have et behandlingsgrundlag. Det kan for eksempel være samtykke, opfyldelse af kontrakt, retlig forpligtelse, beskyttelse af vitale interesser, opgave i samfundets interesse eller legitim interesse efter de betingelser, der gælder. Samtykke skal være frivilligt, specifikt, informeret og utvetydigt. Det er derfor problematisk, hvis personen reelt ikke kan sige nej, eller hvis formålet er uklart.
+
+Særlige kategorier af oplysninger, som helbred, biometriske oplysninger når de behandles med henblik på entydigt at identificere en fysisk person, politiske holdninger og religion, er underlagt strengere regler. Oplysninger om strafbare forhold har også en særlig regulering.
+
+\section{Den registreredes rettigheder}
+
+Den registrerede kan efter betingelserne have ret til information, indsigt, berigtigelse, sletning, begrænsning, dataportabilitet og indsigelse. Rettighederne er ikke absolutte, og undtagelser kan følge af lov, myndighedsopgaver, ytringsfrihed eller nødvendighed i andre beskyttelsesinteresser.
+
+En indsigtsanmodning handler om at få adgang til personoplysninger og information om behandlingen. Den er ikke det samme som en generel ret til alle interne dokumenter eller alle oplysninger om andre personer.
+
+\section{Konsekvensanalyse og sikkerhed}
+
+Hvis en behandling sandsynligvis indebærer høj risiko for menneskers rettigheder og friheder, skal den dataansvarlige normalt gennemføre en konsekvensanalyse. Spørgsmålet er ikke kun, om systemet er teknisk sikkert, men også om behandlingen er nødvendig, rimelig, gennemsigtig og mulig at kontrollere.
+
+Sikkerhed handler om fortrolighed, integritet og tilgængelighed. En adgangskodefejl, forkert modtager, ransomware-hændelse eller manglende backup kan være juridisk relevante på forskellige måder. Et brud skal vurderes efter reglerne, dokumenteres og eventuelt anmeldes.
+
+\section{Kunstig intelligens}
+
+AI-forordningen, også kaldet AI Act, indfører harmoniserede regler for kunstig intelligens i EU \citep{ai-act}. Den bygger blandt andet på en risikobaseret tilgang. Forenklet kan systemer placeres i kategorier som:
+
+\begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt]
+  \item[Uacceptabel risiko] Visse praksisser forbydes eller begrænses, fordi de kan true grundlæggende rettigheder eller udnytte sårbarhed.
+  \item[Høj risiko] Systemer i bestemte produkt- eller anvendelseskategorier mødes af krav om blandt andet risikostyring, datakvalitet, dokumentation, sporbarhed og menneskeligt tilsyn.
+  \item[Begrænset eller særlig gennemsigtighed] Brugere skal i relevante tilfælde vide, at de interagerer med AI eller ser syntetisk indhold.
+  \item[Minimal eller ingen særlig risiko] Almindelige anvendelser kan stadig være omfattet af andre regler, selv om AI-forordningens særlige krav er mindre omfattende.
+\end{description}
+
+Kategorien følger systemets formål og anvendelse, ikke kun modelnavnet. Den samme tekniske model kan have forskellig retlig betydning i et spil, en kundeservice og en beslutning om adgang til en offentlig ydelse.
+
+Dette er en introduktionsmodel, ikke en komplet juridisk klassifikation. De konkrete krav afhænger af systemets funktion, aktørens rolle, eventuelle produktregler og AI-forordningens trinvise anvendelsesdatoer. Kontroller derfor altid den relevante artikel og dato, før et system tages i brug.
+
+\section{Automatiserede afgørelser}
+
+Når en myndighed eller virksomhed bruger et system til at score, prioritere eller afgøre noget om en person, opstår spørgsmål om hjemmel, gennemsigtighed, datakvalitet, menneskelig kontrol, begrundelse, klage og diskrimination. GDPR har ikke et generelt forbud mod al automatisering. Artikel 22 rejser især spørgsmål ved afgørelser, der alene er baseret på automatiseret behandling og har retsvirkning eller tilsvarende betydelig virkning, med undtagelser og krav om garantier. Andre regler kan give yderligere krav. En forklaring af modellen er ikke nødvendigvis en juridisk begrundelse for afgørelsen. Borgeren skal kunne forstå den konkrete afgørelse og reagere på fejl \citep{gdpr}.
+
+\begin{examplebox}
+\textbf{Eksempel: automatisk risikoscore.} En kommune bruger en model til at udvælge sager til ekstra kontrol. Modellen bygger på historiske data, hvor en bestemt gruppe tidligere er blevet kontrolleret oftere. En høj score kan derfor afspejle tidligere praksis snarere end høj faktisk risiko. Juridisk skal man undersøge formål, hjemmel, datagrundlag, forskelsvirkning, menneskelig vurdering, dokumentation og klage.
+\end{examplebox}
+
+\section{AI og aftaler}
+
+Brug af en generativ AI-tjeneste kan samtidig være en kontrakt, en databehandling, en sikkerhedsrisiko og en ophavsretlig problemstilling. Før man sender dokumenter til en ekstern tjeneste, bør man spørge:
+\begin{enumerate}
+  \item Indeholder materialet personoplysninger eller fortrolige oplysninger?
+  \item Hvem er dataansvarlig og databehandler?
+  \item Hvor behandles data, og hvor længe gemmes de?
+  \item Må leverandøren bruge input til andre formål?
+  \item Hvem har ansvaret, hvis output er forkert eller skadeligt?
+  \item Er outputtet kontrolleret, før det bruges over for andre?
+\end{enumerate}
+
+\caution{En AI-model kan formulere et overbevisende juridisk svar med en forkert paragraf. Brug derfor AI til idéudvikling, struktur og søgehjælp, men kontroller altid den gældende kilde og de faktiske betingelser.}
+
+\question{En virksomhed vil gemme alle kunders chats ``for at kunne forbedre AI-modellen senere''. Hvilke spørgsmål om formål, dataminimering, opbevaring, information og behandlingsgrundlag skal afklares?}
+
+\section*{Kapitelopsamling}
+\begin{itemize}
+  \item Digitale systemer skal analyseres gennem aktører, formål, data, risici og retsgrundlag.
+  \item GDPR kræver blandt andet behandlingsgrundlag, formålsbegrænsning, dataminimering og ansvarlighed.
+  \item Roller som dataansvarlig og databehandler følger af den faktiske funktion.
+  \item AI Act bruger en risikobaseret model, hvor anvendelsen er afgørende.
+  \item Automatisering ændrer ikke kravet om menneskelig retlig ansvarlighed, begrundelse og kontrol.
+\end{itemize}

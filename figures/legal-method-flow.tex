@@ -1,0 +1,19 @@
+\begin{tikzpicture}[
+  node distance=0.34cm,
+  block/.style={draw=ink,fill=ink!5,rounded corners=3pt,minimum width=9.2cm,minimum height=.72cm,align=left,inner xsep=.45cm,font=\sffamily\footnotesize},
+  arrow/.style={-{Stealth[length=2mm]},thick,accent},
+  note/.style={draw=muted!55,fill=softgray!45,rounded corners=2pt,text width=8.9cm,align=left,inner sep=5pt,font=\sffamily\scriptsize}
+]
+\node[block] (facts) {\textcolor{accent}{\textbf{1}}\quad \textbf{Fakta}: Hvad skete der, og hvad kan dokumenteres?};
+\node[block,below=of facts] (question) {\textcolor{accent}{\textbf{2}}\quad \textbf{Spørgsmål}: Hvad skal afgøres?};
+\node[block,below=of question] (sources) {\textcolor{accent}{\textbf{3}}\quad \textbf{Retskilder}: Hvilke regler, afgørelser og principper er relevante?};
+\node[block,below=of sources] (interpret) {\textcolor{accent}{\textbf{4}}\quad \textbf{Fortolkning}: Hvad betyder reglen i denne sammenhæng?};
+\node[block,below=of interpret] (subsume) {\textcolor{accent}{\textbf{5}}\quad \textbf{Subsumption}: Passer fakta på regelbetingelserne?};
+\node[block,below=of subsume] (result) {\textcolor{accent}{\textbf{6}}\quad \textbf{Resultat}: Hvilken retsfølge følger, og hvad taler imod?};
+\draw[arrow] (facts) -- (question);
+\draw[arrow] (question) -- (sources);
+\draw[arrow] (sources) -- (interpret);
+\draw[arrow] (interpret) -- (subsume);
+\draw[arrow] (subsume) -- (result);
+\node[note,below=0.42cm of result] {Processen er iterativ: Nye fakta eller en ny retskilde kan sende analysen tilbage til et tidligere trin.};
+\end{tikzpicture}
